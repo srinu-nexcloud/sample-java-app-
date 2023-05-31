@@ -10,12 +10,17 @@
     <form id="task-form">
         <label for="task-input">Task:</label>
         <input type="text" id="task-input">
-        <button type="submit">Add Task</button>
+        <button type="button" onclick="addTask()">Add Task</button>
     </form>
 
-    <ul id="task-list"></ul>
+    <div id="students-container">
+        <h2>Students</h2>
+
+        <div id="student-list"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
