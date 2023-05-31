@@ -1,21 +1,50 @@
-document.querySelector('#task-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-    
-    // Get the task input value
+var studentReports = {};
+
+function addTask() {
     var taskInput = document.querySelector('#task-input');
     var taskText = taskInput.value.trim();
-    
+
     if (taskText !== '') {
-        // Create a new list item for the task
-        var listItem = document.createElement('li');
-        listItem.textContent = taskText;
+        var studentId = prompt('Enter the student ID:');
+        if (studentId !== null && studentId.trim() !== '') {
+            if (!studentReports[studentId]) {
+                studentReports[studentId] = [];
+            }
+            studentReports[studentId].push(taskText);
 
-        // Append the task to the task list
-        var taskList = document.querySelector('#task-list');
-        taskList.appendChild(listItem);
-
-        // Clear the task input
-        taskInput.value = '';
+            taskInput.value = '';
+            displayStudentReports();
+        }
     }
-});
+}
+
+function displayStudentReports() {
+    var studentList = document.querySelector('#student-list');
+    studentList.innerHTML = '';
+
+    for (var studentId in studentReports) {
+        if (studentReports.hasOwnProperty(studentId)) {
+            var studentDiv = document.createElement('div');
+            studentDiv.classList.add('student');
+
+            var studentHeader = document.createElement('h3');
+            studentHeader.textContent = 'Student ID: ' + studentId;
+            studentDiv.appendChild(studentHeader);
+
+            var reportList = document.createElement('ul');
+            var tasks = studentReports[studentId];
+
+            for (var i = 0; i < tasks.length; i++) {
+                var task = tasks[i];
+                var listItem = document.createElement('li');
+                listItem.textContent = task;
+                reportList.appendChild(listItem);
+            }
+
+            studentDiv.appendChild(reportList);
+            studentList.appendChild(studentDiv);
+        }
+    }
+}
+
 
