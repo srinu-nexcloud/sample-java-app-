@@ -7,8 +7,15 @@
 <body>
     <h1>Welcome to the Student Task Tracker</h1>
 
-    <!-- Add your HTML content here -->
-    
+    <form id="task-form">
+        <label for="task-input">Task:</label>
+        <input type="text" id="task-input">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul id="task-list"></ul>
+
     <script src="script.js"></script>
 </body>
 </html>
+

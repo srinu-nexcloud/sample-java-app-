@@ -1,9 +1,21 @@
-// Add your JavaScript code here
-// This is just a sample implementation
-// Feel free to modify it as per your requirements
-
-// Example: Display an alert when the form is submitted
-document.querySelector('form').addEventListener('submit', function (event) {
+document.querySelector('#task-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    alert('Task submitted!');
+    
+    // Get the task input value
+    var taskInput = document.querySelector('#task-input');
+    var taskText = taskInput.value.trim();
+    
+    if (taskText !== '') {
+        // Create a new list item for the task
+        var listItem = document.createElement('li');
+        listItem.textContent = taskText;
+
+        // Append the task to the task list
+        var taskList = document.querySelector('#task-list');
+        taskList.appendChild(listItem);
+
+        // Clear the task input
+        taskInput.value = '';
+    }
 });
+
