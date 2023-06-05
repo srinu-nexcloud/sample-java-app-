@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Task Tracker</title>
+    <title>Student Tasks Tracker</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -9,7 +9,7 @@
 
     <form id="task-form">
         <label for="task-input">Task:</label>
-        <input type="text" id="task-input">
+        <input type="text" isd="task-input">
         <button type="button" onclick="addTask()">Add Task</button>
     </form>
 
